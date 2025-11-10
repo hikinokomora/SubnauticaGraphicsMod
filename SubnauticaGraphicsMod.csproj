@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>SubnauticaGraphicsMod</AssemblyName>
+    <Description>Graphics enhancement mod for Subnautica with ray tracing, DLSS, and frame generation</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Unity Engine reference -->
+    <PackageReference Include="UnityEngine.Modules" Version="2021.3.33" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Note: BepInEx references should be added by copying DLLs from your Subnautica/BepInEx folder -->
+  <!-- Add them to a "lib" folder and reference them locally for building -->
+</Project>
