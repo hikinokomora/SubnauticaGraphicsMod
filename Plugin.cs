@@ -17,6 +17,9 @@ namespace SubnauticaGraphicsMod
         private ConfigEntry<bool> configEnableFrameGeneration;
         private ConfigEntry<int> configTextureQuality;
         private ConfigEntry<float> configRenderScale;
+        private ConfigEntry<bool> configEnablePathTracing;
+        private ConfigEntry<int> configPathTracingBounces;
+        private ConfigEntry<int> configPathTracingSamples;
 
         private GraphicsEnhancer graphicsEnhancer;
 
@@ -64,6 +67,23 @@ namespace SubnauticaGraphicsMod
                 new ConfigDescription("Internal render resolution scale",
                     new AcceptableValueRange<float>(0.5f, 2.0f)));
 
+            configEnablePathTracing = Config.Bind("Advanced",
+                "EnablePathTracing",
+                false,
+                "Enable path tracing for maximum realism (very demanding, requires RTX recommended)");
+
+            configPathTracingBounces = Config.Bind("Advanced",
+                "PathTracingBounces",
+                3,
+                new ConfigDescription("Number of light bounces for path tracing (higher = more realistic but slower)",
+                    new AcceptableValueRange<int>(1, 8)));
+
+            configPathTracingSamples = Config.Bind("Advanced",
+                "PathTracingSamples",
+                4,
+                new ConfigDescription("Samples per pixel for path tracing (higher = less noise but slower)",
+                    new AcceptableValueRange<int>(1, 16)));
+
             Logger.LogInfo("Configuration initialized");
         }
 
@@ -72,5 +92,8 @@ namespace SubnauticaGraphicsMod
         public bool IsFrameGenerationEnabled() => configEnableFrameGeneration.Value;
         public int GetTextureQuality() => configTextureQuality.Value;
         public float GetRenderScale() => configRenderScale.Value;
+        public bool IsPathTracingEnabled() => configEnablePathTracing.Value;
+        public int GetPathTracingBounces() => configPathTracingBounces.Value;
+        public int GetPathTracingSamples() => configPathTracingSamples.Value;
     }
 }

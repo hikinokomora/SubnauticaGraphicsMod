@@ -9,6 +9,7 @@ A comprehensive graphics enhancement mod for Subnautica featuring texture improv
 ### English
 - **Enhanced Textures**: Improved texture quality with configurable quality levels (Low, Medium, High, Ultra)
 - **Ray Tracing**: Realistic lighting, shadows, reflections, and global illumination (requires RTX GPU)
+- **Path Tracing**: Advanced multi-bounce lighting for maximum realism (NEW! Auto-adapts to your GPU)
 - **NVIDIA DLSS**: AI-powered upscaling for better performance (requires RTX GPU)
 - **Frame Generation**: DLSS 3 frame generation for higher FPS (requires RTX 40 series GPU)
 - **Configurable Settings**: Easy-to-use configuration file for all graphics options
@@ -17,6 +18,7 @@ A comprehensive graphics enhancement mod for Subnautica featuring texture improv
 ### Русский
 - **Улучшенные текстуры**: Улучшенное качество текстур с настраиваемыми уровнями качества (Низкий, Средний, Высокий, Ультра)
 - **Трассировка лучей**: Реалистичное освещение, тени, отражения и глобальное освещение (требуется RTX GPU)
+- **Path Tracing**: Продвинутая симуляция света с множественными отражениями для максимального реализма (НОВОЕ! Автоматически подстраивается под ваш GPU)
 - **NVIDIA DLSS**: Апскейлинг с помощью ИИ для лучшей производительности (требуется RTX GPU)
 - **Генерация кадров**: Генерация кадров DLSS 3 для более высокого FPS (требуется RTX 40 серии GPU)
 - **Настраиваемые параметры**: Простой в использовании файл конфигурации для всех параметров графики
@@ -69,6 +71,9 @@ Available settings:
 - `EnableFrameGeneration`: Enable/disable frame generation (default: false)
 - `TextureQuality`: Texture quality level 0-3 (0=Low, 1=Medium, 2=High, 3=Ultra, default: 2)
 - `RenderScale`: Internal render resolution scale 0.5-2.0 (default: 1.0)
+- `EnablePathTracing`: Enable/disable path tracing for maximum realism (default: false) **NEW!**
+- `PathTracingBounces`: Number of light bounces 1-8 (default: 3) **NEW!**
+- `PathTracingSamples`: Samples per pixel 1-16 (default: 4) **NEW!**
 
 ### Русский
 Файл конфигурации находится в `BepInEx/config/com.hikinokomora.subnautica.graphicsmod.cfg`
@@ -79,6 +84,9 @@ Available settings:
 - `EnableFrameGeneration`: Включить/выключить генерацию кадров (по умолчанию: false)
 - `TextureQuality`: Уровень качества текстур 0-3 (0=Низкий, 1=Средний, 2=Высокий, 3=Ультра, по умолчанию: 2)
 - `RenderScale`: Масштаб внутреннего разрешения 0.5-2.0 (по умолчанию: 1.0)
+- `EnablePathTracing`: Включить/выключить path tracing для максимального реализма (по умолчанию: false) **НОВОЕ!**
+- `PathTracingBounces`: Количество отражений света 1-8 (по умолчанию: 3) **НОВОЕ!**
+- `PathTracingSamples`: Образцов на пиксель 1-16 (по умолчанию: 4) **НОВОЕ!**
 
 ## Building from Source / Сборка из исходного кода
 
